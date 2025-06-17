@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
@@ -166,7 +167,7 @@ export default function BinaryWordle() {
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [handleKeyPress])
 
-  const getCellClassName = (state: CellState, isAnimating: boolean, animationDelay: number) => {
+  const getCellClassName = (state: CellState, isAnimating: boolean) => {
     const baseClasses =
       "w-12 h-12 border-2 rounded flex items-center justify-center text-xl font-bold transition-all duration-300"
 
@@ -199,7 +200,7 @@ export default function BinaryWordle() {
           if (guesses[i][j].state === "correct") {
             state = "correct"
             break
-          } else if (guesses[i][j].state === "present" && state !== "correct") {
+          } else if (guesses[i][j].state === "present" && state !== "present") {
             state = "present"
           } else if (guesses[i][j].state === "absent" && state === "empty") {
             state = "absent"
@@ -223,8 +224,8 @@ export default function BinaryWordle() {
 
   return (
     <>
-      <div class="absolute inset-0 bg-white dark:bg-gray-950 overflow-hidden">
-        <div class="absolute inset-0 opacity-[0.3] dark:opacity-[0.2]">
+      <div className="absolute inset-0 bg-white dark:bg-gray-950 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.3] dark:opacity-[0.2]">
           <svg width="100%" height="100%" viewBox="0 0 1200 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="wave-gradient-1" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -255,7 +256,7 @@ export default function BinaryWordle() {
             />
           </svg>
         </div>
-        <div class="absolute inset-0 bg-gradient-to-b from-white via-white/0 to-white dark:from-gray-950 dark:via-gray-950/0 dark:to-gray-950">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/0 to-white dark:from-gray-950 dark:via-gray-950/0 dark:to-gray-950">
           <div className="min-h-screen  flex flex-col items-center justify-center p-4">
             <style jsx>{`
         @keyframes flip {
@@ -332,7 +333,7 @@ export default function BinaryWordle() {
                       <div
                         key={`${rowIndex}-${colIndex}`}
                         className={`
-                    ${getCellClassName(cell.state, isAnimating, animationDelay)}
+                    ${getCellClassName(cell.state, isAnimating)}
                     ${rowIndex === currentRow && colIndex < currentGuess.length && animatingRow === null ? "border-gray-500" : ""}
                   `}
                         style={isAnimating ? { animationDelay: `${animationDelay}ms` } : {}}
