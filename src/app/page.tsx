@@ -44,6 +44,7 @@ const BINARY_WORDS = [
 
 const socialLinks = [
   { name: "GitHub", url: "https://github.com/zehan12" },
+  { name: "Portfolio", url: "https://zehankhan.vercel.app/" },
   { name: "Medium", url: "https://medium.com/@zehan9211" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/zehan-khan-6001a4144/" },
 ];
