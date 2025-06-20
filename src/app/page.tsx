@@ -415,7 +415,7 @@ export default function BinaryWordle() {
               <div className="text-center text-gray-600 text-sm -mt-5">
                 Made with <span className="text-red-500">❤️</span> by{" "}
                 <a
-                  href="https://github.com/zehankhaan"
+                  href="https://github.com/zehan12"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:underline"
